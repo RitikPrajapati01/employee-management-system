@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update your user here </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class=" container w-50 text-start border-dark pt-5">
+        <h3 class="text-danger bg-warning text-center"><i>Update Your Data</i></h3>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{forms.as_p}}
+            <button class="btn btn-success"><span class="bi-pen-fill"></span> Update</button>
+            <a href="{% url 'home' %}" class="btn btn-primary"><span class="bi-house"></span> Home</a>
+        </form>
+        {% if messages %}
+      {% for message in messages %}
+      <small {% if message.tags %} class="{{ message.tags }}" {% endif %}><i class="text-success"><b>{{message}}</b></i></small>
+       {% endfor %}
+      {% endif %}
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
